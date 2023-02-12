@@ -36,7 +36,7 @@ def post_detail(id):
     return render_template("post_detail.html", article=article)
 
 
-@app.route('/posts/<int:id>/del')
+@app.route('DELETE /posts/<id>')
 def post_delete(id):
     task = Task.query.get_or_404(id)
 
