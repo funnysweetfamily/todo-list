@@ -47,7 +47,26 @@ def post_delete(id):
     except:
         return "Oшибка"
 
-@app.route('/create-article', methods=['POST','GET'])
+@app.route('/create-article', methods=['GET'])
+def create_article():
+    if request.method== 'POST':
+        title = request.form['title']
+        intro = request.form['intro']
+        text = request.form['text']
+        title= Task(title=title,intro=intro, text=text)
+        try:
+            db.session.add(task)
+            db.session.commit()
+            return redirect('/posts')
+        except:
+            return "Oшибка "
+
+    else:
+        return render_template ("create-article.html")
+    
+    elif:
+
+@app.route('/create-article', methods=['POST'])
 def create_article():
     if request.method== 'POST':
         title = request.form['title']
