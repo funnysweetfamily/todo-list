@@ -83,7 +83,7 @@ def create_article():
     else:
         return render_template ("create-article.html")
 
-@app.route('/posts/<int:id>/update', methods=['POST','GET'])
+@app.route('/posts/<int:id>/update', methods=['PUT'])
 def post_update(id):
     task = Task.query.get(id)
     if request.method== 'POST':
