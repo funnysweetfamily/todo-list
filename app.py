@@ -22,13 +22,13 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/posts')
-def posts():
+@app.route('/tasks')
+def tasks():
     articles = Task.query.order_by(Article.date.desc()).all()
     return render_template("posts.html", articles=articles)
 
 
-@app.route('/posts/<int:id>')
+@app.route('/tasks/<int:id>')
 def post_detail(id):
     task = Task.query.get(id)
     return render_template("post_detail.html", article=article)
