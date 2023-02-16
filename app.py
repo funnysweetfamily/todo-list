@@ -12,10 +12,8 @@ class Task(db.Model):
     title = db.Column(db.String(100), primary_key=False)
     intro = db.Column(db.String(300), primary_key=False)
     text = db.Column(db.Text, nullable=False)
-    date = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    def __repr__(self):
-        return '<Task %r>' % self.id
 
 
 @app.route('/')
