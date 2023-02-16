@@ -45,7 +45,7 @@ def post_delete(id):
     except:
         return "Oшибка"
 
-@app.route('/create-article', methods=['GET'])
+@app.route('/create-article', methods=['POST'])
 def create_article():
     if request.method== 'POST':
         title = request.form['title']
