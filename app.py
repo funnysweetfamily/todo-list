@@ -34,7 +34,7 @@ def post_detail(id):
     return render_template("post_detail.html", article=article)
 
 
-@app.route('/posts/<id>', methods=['DELETE'])
+@app.route('/task/<id>/', methods=['DELETE'])
 def post_delete(id):
     task = Task.query.get_or_404(id)
 
@@ -45,7 +45,7 @@ def post_delete(id):
     except:
         return "Oшибка"
 
-@app.route('/create-article', methods=['POST'])
+@app.route('/tasks', methods=['POST'])
 def create_article():
     if request.method== 'POST':
         title = request.form['title']
@@ -62,9 +62,7 @@ def create_article():
     else:
         return render_template ("create-article.html")
     
-    elif:
-
-@app.route('/create-article', methods=['POST'])
+@app.route('/task/<id>', methods=['PUT'])
 def create_article():
     if request.method== 'POST':
         title = request.form['title']
@@ -74,14 +72,14 @@ def create_article():
         try:
             db.session.add(task)
             db.session.commit()
-            return redirect('/posts')
+            return redirect('/tasks')
         except:
             return "Oшибка "
 
     else:
         return render_template ("create-article.html")
 
-@app.route('/posts/<int:id>/update', methods=['POST'])
+@app.route('/task/<id>/change', methods=['GET'])
 def post_update(id):
     task = Task.query.get(id)
     if request.method== 'POST':
