@@ -16,19 +16,19 @@ class Task(db.Model):
 
 
 
-@app.route('/')
+@app.route('/', , methods=['GET'])
 @app.route('/home')
 def index():
     return render_template("index.html")
 
 
-@app.route('/tasks')
+@app.route('/tasks', methods=['GET'])
 def tasks():
     articles = Task.query.order_by(Article.date.desc()).all()
     return render_template("posts.html", articles=articles)
 
 
-@app.route('/tasks/<int:id>')
+@app.route('/tasks/<int:id>', methods=['GET'])
 def post_detail(id):
     task = Task.query.get(id)
     return render_template("post_detail.html", article=article)
@@ -59,8 +59,6 @@ def create_article():
         except:
             return "Oшибка "
 
-    else:
-        return render_template ("create-article.html")
     
 @app.route('/task/<id>', methods=['PUT'])
 def create_article():
@@ -81,7 +79,6 @@ def create_article():
 
 @app.route('/task/<id>/change', methods=['GET'])
 def post_update(id):
-    task = Task.query.get(id)
     if request.method== 'POST':
         task.title = request.form['title']
         task.intro = request.form['intro']
