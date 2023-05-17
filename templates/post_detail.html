@@ -1,24 +1,23 @@
 {% extends "base.html" %}
 
 {% block title %}
-{{ article.title }}
+{{ task.title }}
 {% endblock %}
 
 
 {% block body %}
 <div class="container mt-5">
-<h>{{ article.title }}</h>
+<h>{{ task.title }}</h>
 
 
     <div class="alert alert-info">
-        <p>{{ article.text }}</p>
-        <p><br>Дата: {{ article.date.date() }}</br></p>
-        <a href="/tasks/{{ article.id }}/del" class="btn btn-danger">Удалить</a>
-        <a href="/tasks/{{ article.id }}/update" class="btn btn-success">Редактировать</a>
+        <p>{{ task.text }}</p>
+        <p><br>Дата: {{ task.date.date() }}</br></p>
+        <a href="/tasks/{{ task.id }}/del" class="btn btn-danger">Удалить</a>
+        <a href="/tasks/{{ task.id }}/change" class="btn btn-success">Редактировать</a>
 
     </div>
 
     </div>
 {% endblock %}
-
 \n
