@@ -9,10 +9,10 @@
 <div class="container mt-5">
 <h>Ваши планы снизу: </h>
 
-    {% if articles|length > 0 %}
+    {% if tasks|length > 0 %}
 
 
-    {% for el in articles %}
+    {% for el in tasks %}
     <div class="alert alert-info">
         <h2>{{ el.title }}</h2>
         <p>{{ el.intro }}</p>
